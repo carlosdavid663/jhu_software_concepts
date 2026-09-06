@@ -1,6 +1,9 @@
 Name: Carlos David Arredondo Vazquez
 Email: Carredo3@jh.edu
 
+GitHub repository SSH URL:
+git@github.com:carlosdavid663/jhu_software_concepts.git
+
 Module 1 Assignment: Personal Website
 
 1) Make sure you have Python 3.10+ installed.
