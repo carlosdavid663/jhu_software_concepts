@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }} - Carlos Vazquez</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='images/favicon.svg') }}">
+</head>
+<body>
+    <header>
+        <!-- Each page uses this same navigation bar. -->
+        <nav aria-label="Main navigation">
+            <a href="{{ url_for('pages.home') }}"
+               {% if current_page == 'home' %}class="active" aria-current="page"{% endif %}>
+                About
+            </a>
+            <a href="{{ url_for('pages.projects') }}"
+               {% if current_page == 'projects' %}class="active" aria-current="page"{% endif %}>
+                Projects
+            </a>
+            <a href="{{ url_for('pages.contact') }}"
+               {% if current_page == 'contact' %}class="active" aria-current="page"{% endif %}>
+                Contact
+            </a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- The content from home, projects, or contact appears here. -->
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer>
+        <p>Carlos Vazquez - Personal Developer Website</p>
+    </footer>
+</body>
+</html>

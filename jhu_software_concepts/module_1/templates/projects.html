@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Projects</h1>
+
+<h2>Module 1: Personal Developer Website</h2>
+<p>
+    For this project, I built a personal website using Python and Flask.
+    The website has three pages: About, Projects, and Contact.
+</p>
+<p>
+    The Python file run.py starts the website. The file pages.py tells Flask
+    which HTML page to show for each web address. I used a blueprint to keep
+    the three page routes together.
+</p>
+<p>
+    Each page has its own HTML template. The templates share a navigation bar
+    from base.html. A CSS file controls the colors, spacing, and layout.
+</p>
+
+<h3>What I practiced</h3>
+<ul>
+    <li>Creating a Flask application with Python.</li>
+    <li>Using routes to display different web pages.</li>
+    <li>Writing HTML and using CSS to style a website.</li>
+    <li>Organizing project files and saving changes with Git.</li>
+</ul>
+
+<p>
+    <a href="https://github.com/carlosdavid663/jhu_software_concepts/tree/main/module_1">
+        View the Module 1 project on GitHub
+    </a>
+</p>
+{% endblock %}

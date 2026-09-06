@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Carlos Vazquez</h1>
+<h2>Head of AI at Tadweer Group</h2>
+
+<div class="about">
+    <div class="biography">
+        <p>
+            I am based in Abu Dhabi, United Arab Emirates. I work on artificial
+            intelligence projects at Tadweer Group, where I help use technology
+            to improve everyday workflows.
+        </p>
+        <p>
+            My interests include Python, machine learning, and AI agents.
+            I enjoy learning how to build useful applications and solve
+            problems with software.
+        </p>
+        <p>
+            This website is my first project for the course.
+        </p>
+    </div>
+
+<figure>
+    <img src="{{ url_for('static', filename='images/profile.jpg') }}"
+         alt="Photo of Carlos Vazquez">
+    <figcaption>Carlos Vazquez</figcaption>
+</figure>
+</div>
+{% endblock %}

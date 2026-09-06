@@ -1,0 +1,119 @@
+/* Basic font and colors for the whole website. */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+    color: #243447;
+    background-color: white;
+}
+
+/* Keep the navigation at the top right of every page. */
+header {
+    background-color: #163a5f;
+    padding: 18px 24px;
+}
+
+nav {
+    text-align: right;
+}
+
+nav a {
+    display: inline-block;
+    padding: 8px 16px;
+    color: white;
+    text-decoration: none;
+}
+
+/* Give the current page a different background color. */
+nav a.active {
+    background-color: #d4e5ff;
+    color: #163a5f;
+    font-weight: bold;
+}
+
+/* Leave space around the page content. */
+main {
+    max-width: 1050px;
+    margin: 40px auto;
+    padding: 0 24px;
+    min-height: 600px;
+}
+
+h1 {
+    font-size: 36px;
+    margin-bottom: 8px;
+}
+
+h2 {
+    font-size: 24px;
+    margin-top: 24px;
+}
+
+h3 {
+    font-size: 20px;
+}
+
+a {
+    color: #1557b0;
+}
+
+/* Help keyboard users see which link is selected. */
+a:focus-visible {
+    outline: 3px solid #d98400;
+    outline-offset: 3px;
+}
+
+/* Place the biography on the left and the image on the right. */
+.about {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    margin-top: 24px;
+}
+
+.biography {
+    flex: 1;
+}
+
+figure {
+    width: 320px;
+    max-width: 100%;
+    margin: 0;
+}
+
+img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+figcaption,
+.note {
+    font-size: 16px;
+    color: #596777;
+}
+
+footer {
+    text-align: center;
+    padding: 16px 24px;
+    border-top: 1px solid #dce3eb;
+    font-size: 16px;
+    color: #596777;
+}
+
+/* On small screens, put the image below the biography. */
+@media (max-width: 700px) {
+    .about {
+        flex-direction: column;
+    }
+
+    nav a {
+        padding: 8px;
+    }
+
+    main {
+        margin-top: 24px;
+        min-height: 0;
+    }
+}
