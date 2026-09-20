@@ -1,0 +1,50 @@
+/* Plain CSS: no build step and no downloaded fonts. */
+:root { color-scheme: light; --navy: #153a42; --green: #246455; --muted: #566868; }
+* { box-sizing: border-box; }
+body { margin: 0; background: #f3f5f1; color: #18383d; font-family: "Segoe UI", Arial, sans-serif; line-height: 1.55; }
+.page-width { max-width: 1120px; margin: 0 auto; padding: 0 28px; }
+header { background: var(--navy); color: #fff; padding: 44px 0 38px; border-top: 6px solid #baca91; }
+.eyebrow, .question-number { font-size: 12px; font-weight: 700; letter-spacing: 1.8px; }
+.eyebrow { color: #c8d8b1; }
+h1 { font-size: clamp(30px, 4vw, 44px); line-height: 1.15; margin: 13px 0; font-weight: 650; }
+header p { color: #d2e1e0; margin: 0 0 20px; font-size: 18px; }
+.header-note { font-size: 13px; color: #c6d7d5; }
+.controls { background: white; padding: 24px 28px; margin: 28px 0; border: 1px solid #dce4dc; border-radius: 12px; display: grid; grid-template-columns: 1fr auto; gap: 18px; }
+h2 { font-size: 19px; margin: 0 0 10px; }
+.controls p { font-size: 14px; margin: 5px 0; color: var(--muted); }
+.buttons { display: flex; gap: 10px; align-items: center; }
+button { font: inherit; font-size: 14px; font-weight: 650; border: 1px solid var(--green); border-radius: 6px; padding: 11px 16px; color: white; background: var(--green); cursor: pointer; }
+button:hover { background: #194c40; }
+button.secondary { color: var(--green); background: white; }
+button.secondary:hover { background: #eef5ee; }
+button:disabled { opacity: .5; cursor: wait; }
+button:focus-visible { outline: 3px solid #9aba58; outline-offset: 3px; }
+.status { grid-column: 1 / -1; padding-top: 16px; border-top: 1px solid #e4e9e4; font-size: 14px; }
+.dot { display: inline-block; height: 8px; width: 8px; margin-right: 6px; border-radius: 50%; background: #3f8061; }
+.dot.busy { background: #b67713; }
+.section-heading { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; margin: 32px 0 15px; }
+.section-heading h2 { margin: 0; font-size: 24px; }
+.section-heading span { font-size: 12px; color: var(--muted); }
+.cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.card { background: #fff; border: 1px solid #dce4dc; border-radius: 10px; padding: 23px 26px; }
+.wide { grid-column: 1 / -1; }
+.question-number { color: var(--green); font-size: 10px; margin-bottom: 10px; }
+h3 { font-size: 17px; font-weight: 650; line-height: 1.45; margin: 0 0 18px; }
+.answer { font-size: 36px; font-weight: 650; letter-spacing: -1px; line-height: 1.2; }
+.answer-label { font-size: 12px; color: var(--muted); margin: 4px 0 18px; }
+.explanation { color: var(--muted); font-size: 13px; margin: 18px 0 0; }
+.data-warning { background: #fff5df; border-left: 4px solid #b67713; color: #63451a; padding: 12px 15px; font-size: 13px; margin: 18px 0 0; }
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; text-align: left; font-variant-numeric: tabular-nums; }
+th { font-size: 12px; font-weight: 600; color: var(--muted); padding: 8px 12px; background: #f0f5ef; }
+td { padding: 8px 12px; border-bottom: 1px solid #e6ebe4; font-size: 15px; }
+aside { margin: 26px 0; padding: 18px 23px; background: #e7eedf; color: #354b35; border-radius: 8px; font-size: 13px; }
+footer { color: var(--muted); font-size: 12px; padding-bottom: 28px !important; }
+@media (max-width: 700px) {
+    .page-width { padding: 0 18px; }
+    .controls, .cards { grid-template-columns: 1fr; }
+    .controls { padding: 20px; }
+    .buttons { flex-wrap: wrap; }
+    .section-heading { flex-direction: column; gap: 5px; }
+    .card { padding: 20px; }
+}

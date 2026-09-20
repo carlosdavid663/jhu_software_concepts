@@ -1,0 +1,13 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+.env.*
+.gradcafe/
+connection.json
+runtime/
+llm_cache.json
+llm_hosting/models/
+saved_pages/
+scrape_progress.json
+robots_check.json
