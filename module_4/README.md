@@ -12,16 +12,14 @@ covered (100% line coverage). This includes the inherited local model helper.
 No source files or lines are excluded from coverage. See
 [coverage_summary.txt](coverage_summary.txt).
 
-**Online requirements still pending:** a successful GitHub Actions run,
-`actions_success.png` showing that run, and a published documentation URL.
-The workflow and Read the Docs configuration are prepared, but a local test
-run is not evidence of a GitHub Actions run. Complete the steps in the
-GitHub Actions and submission section below before the final upload.
+**GitHub Actions:** the [successful workflow run](https://github.com/carlosdavid663/jhu_software_concepts/actions/runs/36315696953)
+is recorded in [actions_success.png](actions_success.png).
+The documentation is published at the link below.
 
 Repository SSH URL recorded in Module 3:
 `git@github.com:carlosdavid663/jhu_software_concepts.git`
 
-Hosted documentation: **pending publication**.
+Hosted documentation: [Grad Cafe - Module 4](https://module-4-testing-and-documentation-assignment.readthedocs.io/en/latest/).
 Generated local documentation: [open the HTML](docs/_build/html/index.html).
 
 ## Install and configure
@@ -157,7 +155,7 @@ all application modules, HTTP routes, tests, fixtures, selectors and operations.
 
 For Read the Docs, place `.readthedocs.yaml` at the **repository root**, import
 the repository in your Read the Docs account, and build the chosen branch.
-After a successful build, replace the pending hosted link above with its real URL.
+The published documentation is linked near the top of this README.
 The configuration does not connect to a database or load a model during import.
 
 ## GitHub Actions and submission
@@ -167,11 +165,10 @@ Place `.github/workflows/tests.yml` at the **repository root**, alongside
 100% coverage, and builds Sphinx with warnings treated as errors.
 
 The supplied archive includes both repository-root configuration files.
-After pushing, open Actions, confirm the run is green, and capture the actual
-run as `module_4/actions_success.png`. Commit the screenshot and coverage summary.
+The successful run is saved as `module_4/actions_success.png`. The screenshot
+and coverage summary are included in this package. After pushing changes,
+confirm the new GitHub Actions run and Read the Docs build succeed.
 Check that the ZIP and committed files match before submitting to Canvas.
 
-The current package does not yet contain the required GitHub success
-screenshot or a verified hosted documentation URL. Add those after the
-remote run and documentation publication succeed. Submit the repository
-SSH URL, hosted documentation link, and matching project ZIP to Canvas.
+Submit the repository SSH URL, hosted documentation link, and matching
+project ZIP to Canvas.

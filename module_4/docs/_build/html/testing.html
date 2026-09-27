@@ -156,9 +156,9 @@ display <code class="docutils literal notranslate"><span class="pre">N/A</span><
 <h2>Evidence and CI<a class="headerlink" href="#evidence-and-ci" title="Link to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">coverage_summary.txt</span></code> is the recorded local marked-suite output.
 The root GitHub workflow uses a disposable PostgreSQL service and executes
-the same suite, followed by a strict Sphinx build. <code class="docutils literal notranslate"><span class="pre">actions_success.png</span></code> must
-be a screenshot of an actual successful remote run; it is pending until the
-repository is accessible and the workflow has run.</p>
+the same suite, followed by a strict Sphinx build. The included
+<code class="docutils literal notranslate"><span class="pre">actions_success.png</span></code> records a <a class="reference external" href="https://github.com/carlosdavid663/jhu_software_concepts/actions/runs/36315696953">successful remote run</a>.
+After pushing changes, check that the new workflow run succeeds too.</p>
 <p>Coverage verifies executed Python statements. Browser JavaScript and model
 quality are outside that measurement; no browser clicks are needed by this
 test suite.</p>

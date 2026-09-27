@@ -26,5 +26,7 @@ claim that every possible input, browser interaction or model prediction has
 been verified.
 
 The repository's ``coverage_summary.txt`` contains the actual test report.
-Remote CI success and documentation publication remain pending in
-``README.md``. A local pass does not establish a successful GitHub run.
+The `successful GitHub Actions run
+<https://github.com/carlosdavid663/jhu_software_concepts/actions/runs/36315696953>`_
+is recorded in ``actions_success.png``. The README links to this published
+documentation and the evidence included in the submission.

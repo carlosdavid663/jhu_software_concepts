@@ -1,9 +1,16 @@
 """Collect public GradCafe results with simple functions and saved progress.
 
-Run these commands from the module_4 folder.
-Try one page first: python -m src.scrape --limit 20
-Collect separately: python -m src.scrape --data-dir runtime/fresh --limit 30020
-Read scrape_data() to see the overall collection loop.
+Run these commands from the ``module_4`` folder.
+
+Try one page first::
+
+    python -m src.scrape --limit 20
+
+Collect separately::
+
+    python -m src.scrape --data-dir runtime/fresh --limit 30020
+
+Read ``scrape_data()`` to see the overall collection loop.
 """
 
 import argparse

@@ -197,10 +197,16 @@ Normal users can call create_app() without providing any of them.</p>
 <section id="module-src.scrape">
 <span id="scraping"></span><h2>Scraping<a class="headerlink" href="#module-src.scrape" title="Link to this heading">¶</a></h2>
 <p>Collect public GradCafe results with simple functions and saved progress.</p>
-<p>Run these commands from the module_4 folder.
-Try one page first: python -m src.scrape –limit 20
-Collect separately: python -m src.scrape –data-dir runtime/fresh –limit 30020
-Read scrape_data() to see the overall collection loop.</p>
+<p>Run these commands from the <code class="docutils literal notranslate"><span class="pre">module_4</span></code> folder.</p>
+<p>Try one page first:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">src</span><span class="o">.</span><span class="n">scrape</span> <span class="o">--</span><span class="n">limit</span> <span class="mi">20</span>
+</pre></div>
+</div>
+<p>Collect separately:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">src</span><span class="o">.</span><span class="n">scrape</span> <span class="o">--</span><span class="n">data</span><span class="o">-</span><span class="nb">dir</span> <span class="n">runtime</span><span class="o">/</span><span class="n">fresh</span> <span class="o">--</span><span class="n">limit</span> <span class="mi">30020</span>
+</pre></div>
+</div>
+<p>Read <code class="docutils literal notranslate"><span class="pre">scrape_data()</span></code> to see the overall collection loop.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="src.scrape.check_robots">
 <span class="sig-prename descclassname"><span class="pre">src.scrape.</span></span><span class="sig-name descname"><span class="pre">check_robots</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">min_delay</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.scrape.check_robots" title="Link to this definition">¶</a></dt>

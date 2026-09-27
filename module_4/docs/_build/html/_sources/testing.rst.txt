@@ -74,9 +74,10 @@ Evidence and CI
 
 ``coverage_summary.txt`` is the recorded local marked-suite output.
 The root GitHub workflow uses a disposable PostgreSQL service and executes
-the same suite, followed by a strict Sphinx build. ``actions_success.png`` must
-be a screenshot of an actual successful remote run; it is pending until the
-repository is accessible and the workflow has run.
+the same suite, followed by a strict Sphinx build. The included
+``actions_success.png`` records a `successful remote run
+<https://github.com/carlosdavid663/jhu_software_concepts/actions/runs/36315696953>`_.
+After pushing changes, check that the new workflow run succeeds too.
 
 Coverage verifies executed Python statements. Browser JavaScript and model
 quality are outside that measurement; no browser clicks are needed by this
