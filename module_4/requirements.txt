@@ -1,0 +1,7 @@
+Flask==3.1.3
+beautifulsoup4==4.15.0
+psycopg[binary]==3.3.6
+SQLAlchemy==2.0.54
+pytest==9.1.1
+pytest-cov==7.1.0
+Sphinx==9.1.0

@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% if state.busy %}
+    <meta http-equiv="refresh" content="5">
+    {% endif %}
+    <title>Grad Café | Admissions Analysis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <div class="page-width">
+            <div class="eyebrow">GRAD CAFÉ / MODULE 4</div>
+            <h1>Admissions Analysis</h1>
+            <p>Explore the patterns in self-reported graduate admissions.</p>
+            <div class="header-note">9 required questions &nbsp; / &nbsp; 2 additional questions</div>
+        </div>
+    </header>
+    <main class="page-width">
+        <section class="controls" aria-label="Data controls">
+            <div>
+                <h2>Keep the analysis current</h2>
+                <p><strong>Pull Data</strong> collects new entries, cleans them, and adds them to the database.</p>
+                <p><strong>Update Analysis</strong> refreshes the answers from the database.</p>
+            </div>
+            <div class="buttons">
+                <form method="post" action="{{ url_for('pull') }}">
+                    <button data-testid="pull-data-btn" type="submit" {% if state.busy %}disabled{% endif %}>Pull Data</button>
+                </form>
+                <form method="post" action="{{ url_for('update') }}">
+                    <button data-testid="update-analysis-btn" class="secondary" type="submit" {% if state.busy %}disabled{% endif %}>Update Analysis</button>
+                </form>
+            </div>
+            <div class="status" role="status" aria-live="polite">
+                <span class="dot {% if state.busy %}busy{% endif %}"></span>
+                {{ state.message }}
+                {% if state.busy %}<p>Both buttons are paused until this pull finishes. The last analysis remains visible.</p>{% endif %}
+            </div>
+        </section>
+
+        <div class="section-heading">
+            <h2>Results</h2>
+            <span>Last updated: {{ state.updated or 'Waiting for database' }}</span>
+        </div>
+        <div class="cards">
+            {% for card in cards %}
+            <section data-testid="analysis-item" data-question="{{ card.number }}" class="card {% if card.number in [3, 9, 10, 11] %}wide{% endif %}">
+                <div class="question-number">
+                    {% if card.number > 9 %}
+                        ADDITIONAL
+                    {% else %}
+                        QUESTION
+                    {% endif %}
+                    {{ '%02d'|format(card.number) }}
+                </div>
+                <h3>{{ card.question }}</h3>
+                <div class="answer-prefix">Answer:</div>
+                {% if card.rows %}
+                    {% if card.columns|length == 1 %}
+                        <div class="answer">{{ card.rows[0][0] }}</div>
+                        <div class="answer-label">{{ card.columns[0] }}</div>
+                    {% else %}
+                        <div class="table-wrap">
+                            <table>
+                                <thead>
+                                    <tr>
+                                    {% for label in card.columns %}
+                                        <th scope="col">{{ label }}</th>
+                                    {% endfor %}
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                {% for row in card.rows %}
+                                    <tr>
+                                    {% for value in row %}
+                                        <td>{{ value }}</td>
+                                    {% endfor %}
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    {% endif %}
+                {% else %}
+                    <p>No results available.</p>
+                {% endif %}
+                {% if card.number == 3 %}
+                <p class="data-warning">
+                    <strong>Score quality:</strong> These are averages of the stored values.
+                    Some collected scores are outside the current GRE ranges
+                    (Quantitative and Verbal: 130–170; Analytical Writing: 0–6).
+                    The original values are retained, so these averages should not be treated
+                    as verified test-score averages. See the limitations report included with the project.
+                </p>
+                {% endif %}
+                {% if card.number == 9 %}
+                <p class="explanation">Entries without LLM names are excluded from the LLM count.
+                    A difference can therefore reflect missing names as well as changed names.</p>
+                {% endif %}
+                <p class="explanation">{{ card.explanation }}</p>
+            </section>
+            {% endfor %}
+        </div>
+        <aside>
+            <strong>Read these results as a sample of reports.</strong>
+            One entry is not necessarily one person. Missing values are excluded separately for each average;
+            N/A means no usable denominator. Source scores are retained, including values outside expected GRE ranges.
+            Read the included limitations report before interpreting the averages or acceptance percentages.
+        </aside>
+    </main>
+    <footer class="page-width">Grad Café data &nbsp; / &nbsp; PostgreSQL + SQLAlchemy + Flask</footer>
+    <script src="{{ url_for('static', filename='controls.js') }}"></script>
+</body>
+</html>

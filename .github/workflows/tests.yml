@@ -1,0 +1,52 @@
+name: Module 4 tests
+
+on:
+  push:
+    paths: ['module_4/**', '.github/workflows/tests.yml']
+  pull_request:
+    paths: ['module_4/**', '.github/workflows/tests.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    services:
+      postgres:
+        image: postgres:18
+        env:
+          POSTGRES_USER: module4_test
+          POSTGRES_DB: gradcafe_module4_test
+          # Disposable CI service, bound only to the runner's loopback interface.
+          POSTGRES_HOST_AUTH_METHOD: trust
+        ports:
+          - '127.0.0.1:5432:5432'
+        options: >-
+          --health-cmd "pg_isready -U module4_test -d gradcafe_module4_test"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    env:
+      TEST_DATABASE_URL: postgresql://module4_test@127.0.0.1:5432/gradcafe_module4_test
+    defaults:
+      run:
+        working-directory: module_4
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: module_4/requirements.txt
+      - name: Install dependencies
+        run: python -m pip install -r requirements.txt
+      - name: Run every marked test with full coverage
+        shell: bash
+        run: |
+          set -o pipefail
+          python -m pytest -m "web or buttons or analysis or db or integration" | tee coverage_summary.txt
+      - name: Build Sphinx HTML with warnings treated as errors
+        run: python -m sphinx -W --keep-going -b html docs docs/_build/html

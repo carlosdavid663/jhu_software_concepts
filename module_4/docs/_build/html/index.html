@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Grad Cafe: Testing and Documentation &#8212; Grad Cafe: Testing and Documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=5ecbeea2" />
+    <link rel="stylesheet" type="text/css" href="_static/basic.css?v=b08954a9" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=f6a572b4" />
+    <script src="_static/documentation_options.js?v=f2a433a1"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Setup and daily use" href="setup.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="#">Grad Cafe - Module 4</a></h1>
+
+
+
+<p class="blurb">Module 4 | Pytest, PostgreSQL and Sphinx</p>
+
+
+
+
+
+
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Developer guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="setup.html">Setup and daily use</a></li>
+<li class="toctree-l1"><a class="reference internal" href="architecture.html">Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testing.html">Testing guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="operations.html">Operational notes and troubleshooting</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="#">Documentation overview</a><ul>
+      <li>Next: <a href="setup.html" title="next chapter">Setup and daily use</a></li>
+  </ul></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="grad-cafe-testing-and-documentation">
+<h1>Grad Cafe: Testing and Documentation<a class="headerlink" href="#grad-cafe-testing-and-documentation" title="Link to this heading">¶</a></h1>
+<p>This application collects public graduate-admissions reports, preserves their
+original fields, stores them in PostgreSQL, and presents eleven analyses.
+Module 4 adds deterministic tests, an injectable Flask factory, and documentation
+to the existing Module 3 application.</p>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Developer guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="setup.html">Setup and daily use</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="setup.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="setup.html#environment-variables">Environment variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="setup.html#run-the-application">Run the application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="setup.html#run-tests-and-build-docs">Run tests and build docs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="setup.html#publishing">Publishing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="architecture.html">Architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html#web-layer">Web layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html#etl-layer">ETL layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html#database-and-analysis-layers">Database and analysis layers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html#schema-contract">Schema contract</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api.html#http-routes">HTTP routes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#module-src.app">Flask application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#module-src.paths">Shared data folders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#module-src.scrape">Scraping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#module-src.clean">Cleaning and model caching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#module-src.database">Database connection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#module-src.load_data">Loading and record dictionaries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#module-src.query_data">SQL queries and display formatting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#orm-model-and-queries">ORM model and queries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#module-src.pull_data">Incremental pulls</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#module-src.llm_hosting.app">Optional model adapter</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="testing.html">Testing guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="testing.html#markers">Markers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="testing.html#fixtures-and-injection">Fixtures and injection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="testing.html#stable-selectors">Stable selectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="testing.html#evidence-and-ci">Evidence and CI</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="operations.html">Operational notes and troubleshooting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="operations.html#busy-policy">Busy policy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operations.html#idempotency-and-atomicity">Idempotency and atomicity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operations.html#collection-and-data-limitations">Collection and data limitations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operations.html#troubleshooting">Troubleshooting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operations.html#reference-documentation">Reference documentation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<section id="verification">
+<h2>Verification<a class="headerlink" href="#verification" title="Link to this heading">¶</a></h2>
+<p>The local suite contains 101 passing tests and covers 100% of Python statements
+under <code class="docutils literal notranslate"><span class="pre">src/</span></code>, including the inherited model helper. Database tests use real
+PostgreSQL. Website and model calls use fakes. This is line coverage, not a
+claim that every possible input, browser interaction or model prediction has
+been verified.</p>
+<p>The repository’s <code class="docutils literal notranslate"><span class="pre">coverage_summary.txt</span></code> contains the actual test report.
+Remote CI success and documentation publication remain pending in
+<code class="docutils literal notranslate"><span class="pre">README.md</span></code>. A local pass does not establish a successful GitHub run.</p>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &#169;2026, Carlos David Arredondo Vazquez.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 9.1.0</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
+      
+      |
+      <a href="_sources/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

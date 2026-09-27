@@ -1,0 +1,4 @@
+# Optional: generating new local model names. Tests use a fake model.
+--extra-index-url https://abetlen.github.io/llama-cpp-python/whl/cpu
+huggingface_hub==1.31.0
+llama_cpp_python==0.3.35

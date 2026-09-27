@@ -1,0 +1,14 @@
+__pycache__/
+*.py[cod]
+.venv/
+.coverage
+.pytest_cache/
+coverage.json
+runtime/
+src/saved_pages/
+src/llm_cache.json
+src/llm_hosting/models/
+docs/_build/doctrees/
+*.tmp
+.env
+docs/_build/html/.doctrees/
